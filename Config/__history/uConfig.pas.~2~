@@ -1,0 +1,23 @@
+unit uConfig;
+
+interface
+type
+  TConfig = class
+    private
+    public
+
+  end;
+
+var
+  Config:TConfig;
+
+implementation
+uses System.SysUtils;
+
+initialization
+  Config:=TConfig.Create();
+
+finalization
+  FreeAndNil(Config);
+
+end.

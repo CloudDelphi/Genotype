@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.789,=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.288,C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit1.pas=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.113,C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit1.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.401,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.764,C:\Embarcadero\Projects\Unit1.pas=C:\Embarcadero\Projects\ProjektWATGenotyp\uMainForm.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.169,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoAdministrator.pas=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit5.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.390,=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit5.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.451,=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\uMainForm.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.465,C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\uMainForm.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.015,C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\uMainForm.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.096,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.158,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.290,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.080,=C:\Embarcadero\Projects\ProjektWATGenotyp\ModelSupport_ProjektWATGenotyp\default.txaPackage</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.423,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.477,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.060,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.929,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.899,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.421,=C:\Embarcadero\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.440,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoLaborant.fmx=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit4.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.440,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoLaborant.pas=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit4.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.374,C:\Embarcadero\Projects\ProjektWATGenotyp\DBConnection\ConnectionModule.pas=C:\Embarcadero\Projects\ProjektWATGenotyp\ConnectionModule.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.374,C:\Embarcadero\Projects\ProjektWATGenotyp\DBConnection\ConnectionModule.dfm=C:\Embarcadero\Projects\ProjektWATGenotyp\ConnectionModule.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.933,=C:\Embarcadero\Projects\ProjektWATGenotyp\DBConnection\ConnectionModule.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.165,C:\Embarcadero\Projects\Project1.dproj=C:\Embarcadero\Projects\ProjektWATGenotyp\ProjektWATGenotyp.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.557,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoLogowania.pas=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.045,=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit4.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.288,C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit1.fmx=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit2.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.557,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoLogowania.fmx=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.472,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoSekretarka.fmx=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit3.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.169,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoAdministrator.fmx=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit5.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.050,=C:\Embarcadero\Projects\ProjektWATGenotyp\ConnectionModule.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.942,C:\Users\Kasia\Documents\semestr 6\WIM\3\ProjektWATGenotyp\MainApplication\Unit1.fmx=C:\Users\Kasia\Documents\semestr 6\WIM\3\ProjektWATGenotyp\MainApplication\OknoImport.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.041,=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.780,=C:\Users\Kasia\Documents\semestr 6\WIM\3\ProjektWATGenotyp\MainApplication\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.764,C:\Embarcadero\Projects\Unit1.fmx=C:\Embarcadero\Projects\ProjektWATGenotyp\uMainForm.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.942,C:\Users\Kasia\Documents\semestr 6\WIM\3\ProjektWATGenotyp\MainApplication\Unit1.pas=C:\Users\Kasia\Documents\semestr 6\WIM\3\ProjektWATGenotyp\MainApplication\OknoImport.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.472,C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\OknoSekretarka.pas=C:\Users\Kamil Rutkowski\Downloads\wim\ProjektWATGenotyp\ProjektWATGenotyp\MainApplication\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.700,=C:\Users\Kasia\Documents\semestr 6\WIM\1\ProjektWATGenotyp\MainApplication\Unit2.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android=""/>
+	</ActiveMobileDevice>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\ProjektWATGenotyp"/>
+    <File Path="..\DBConnection"/>
+    <File Path="..\DBConnection\ConnectionModule.pas"/>
+    <File Path="..\DBConnection\ConnectionModule.dfm"/>
+    <File Path="ModelSupport_ProjektWATGenotyp"/>
+    <File Path="ModelSupport_ProjektWATGenotyp\default.txaPackage"/>
+    <File Path="OknoAdministrator.pas"/>
+    <File Path="OknoAdministrator.fmx"/>
+    <File Path="OknoLaborant.pas"/>
+    <File Path="OknoLaborant.fmx"/>
+    <File Path="OknoLogowania.pas"/>
+    <File Path="OknoLogowania.fmx"/>
+    <File Path="OknoSekretarka.pas"/>
+    <File Path="OknoSekretarka.fmx"/>
+    <File Path="OknoImport.pas"/>
+    <File Path="OknoImport.fmx"/>
+  </ProjectSortOrder>
+</BorlandProject>

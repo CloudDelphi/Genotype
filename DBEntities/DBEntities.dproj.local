@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.866,=C:\Embarcadero\Projects\ProjektWATGenotyp\DBEntities\Entity.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.822,=rtl.dcp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.372,C:\Embarcadero\Projects\ProjektWATGenotyp\DBEntities\Entity.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.259,C:\Embarcadero\Projects\ProjektWATGenotyp\DBEntities\DBEntities.dproj=C:\Embarcadero\Projects\DBEntities.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.074,=tmsbcl.dcp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.747,=C:\Embarcadero\Projects\ProjektWATGenotyp\DBEntities\Entities.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.060,=aurelius.dcp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.786,C:\Embarcadero\Projects\DBEntities.dproj=C:\Embarcadero\Projects\Package1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.639,=rtl.dcp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.044,=dbrtl.dcp</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile Android=""/>
+	</ActiveMobileDevice>
+</BorlandProject>

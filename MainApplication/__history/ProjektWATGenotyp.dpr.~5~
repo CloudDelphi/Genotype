@@ -1,0 +1,15 @@
+program ProjektWATGenotyp;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  ConnectionModule in '..\DBConnection\ConnectionModule.pas' {FireDacMySQLConnection: TDataModule},
+  Unit1 in 'Unit1.pas' {Form2};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm2, Form2);
+  Application.Run;
+end.

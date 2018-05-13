@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{4A801F2B-73F4-447E-B367-0ADA1969AF70}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Config\Config.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DBConnection\DBConnection.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DBEntities\DBEntities.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MainApplication\ProjektWATGenotyp.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Config">
+        <MSBuild Projects="Config\Config.dproj"/>
+    </Target>
+    <Target Name="Config:Clean">
+        <MSBuild Projects="Config\Config.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Config:Make">
+        <MSBuild Projects="Config\Config.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DBConnection">
+        <MSBuild Projects="DBConnection\DBConnection.dproj"/>
+    </Target>
+    <Target Name="DBConnection:Clean">
+        <MSBuild Projects="DBConnection\DBConnection.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DBConnection:Make">
+        <MSBuild Projects="DBConnection\DBConnection.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DBEntities">
+        <MSBuild Projects="DBEntities\DBEntities.dproj"/>
+    </Target>
+    <Target Name="DBEntities:Clean">
+        <MSBuild Projects="DBEntities\DBEntities.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DBEntities:Make">
+        <MSBuild Projects="DBEntities\DBEntities.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjektWATGenotyp">
+        <MSBuild Projects="MainApplication\ProjektWATGenotyp.dproj"/>
+    </Target>
+    <Target Name="ProjektWATGenotyp:Clean">
+        <MSBuild Projects="MainApplication\ProjektWATGenotyp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjektWATGenotyp:Make">
+        <MSBuild Projects="MainApplication\ProjektWATGenotyp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Config;DBConnection;DBEntities;ProjektWATGenotyp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Config:Clean;DBConnection:Clean;DBEntities:Clean;ProjektWATGenotyp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Config:Make;DBConnection:Make;DBEntities:Make;ProjektWATGenotyp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

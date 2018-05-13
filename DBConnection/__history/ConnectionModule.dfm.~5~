@@ -1,0 +1,12 @@
+object DBConnection: TDBConnection
+  OldCreateOrder = True
+  Height = 198
+  Width = 282
+  object Connection: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=Projekt')
+    LoginPrompt = False
+    Left = 24
+    Top = 8
+  end
+end
