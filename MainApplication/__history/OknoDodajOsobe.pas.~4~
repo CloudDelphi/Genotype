@@ -1,0 +1,47 @@
+unit OknoDodajOsobe;
+
+interface
+
+uses
+  ConnectionModule,uDB, Entities, IdGlobal, IdHash, IdHashMessageDigest,
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, System.Rtti, FMX.Grid.Style, System.Hash,
+  FMX.ScrollBox, FMX.Grid, System.Generics.Collections, Data.DB,
+  Aurelius.Bind.BaseDataset, Aurelius.Bind.Dataset, Aurelius.Criteria.Linq, FMX.Ani, FMX.Layouts,
+  FMX.ExtCtrls, FMX.Edit, FMX.ListBox, Windows, Aurelius.Engine.ObjectManager;
+
+
+type
+  TForm8 = class(TForm)
+    Zamknij: TButton;
+    Dodaj: TButton;
+    ImieEdit: TEdit;
+    NazwiskoEdit: TEdit;
+    PeselEdit: TEdit;
+    ImieLabel: TLabel;
+    NazwiskoLabel: TLabel;
+    PeselLabel: TLabel;
+    DodajOsobe: TLabel;
+    procedure ZamknijClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form8: TForm8;
+
+implementation
+
+{$R *.fmx}
+
+
+procedure TForm8.ZamknijClick(Sender: TObject);
+begin
+ Form8.Hide;
+ form8.Close;
+end;
+
+end.

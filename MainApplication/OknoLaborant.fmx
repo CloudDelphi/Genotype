@@ -17,7 +17,7 @@ object Form4: TForm4
   Fill.Gradient.StartPosition.X = 1.000000000000000000
   Fill.Gradient.StartPosition.Y = 0.850103735923767100
   Fill.Gradient.StopPosition.Y = 0.149896234273910500
-  Position = Designed
+  Position = MainFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]

@@ -1,4 +1,9 @@
   {
+Program:      Genotyp Projekt WAT
+File:         Entities
+Description:  Okno importowania wynoków badañ
+Notes:
+              Katarzyna Nowak - wczytanie z pliku wartoœci Allelów do Tablicy
 
 }
 unit OknoImport;

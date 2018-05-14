@@ -1,7 +1,10 @@
 {
-@@@TODO:
-			        podmiana na wlasciwa tabele + kolumny po utworzeniu bazy
-              @@@@uruchamianie odpowiedniego panelu w zaleznosci od roli konta --- DO ZMIANY -> BEDZIE TABELA "GRUPA"
+Program:      Genotyp Projekt WAT
+File:         OknoLogowania
+Description:  Plik okna startowego - logowania do aplikacji
+Notes:        Katarzyna Nowak - formatka logowania
+              Kamil Rutkowski - mechanizm logowania do aplikacji + HASH MD5
+
 }
 
 unit OknoLogowania;
@@ -52,6 +55,8 @@ implementation
 
 {$R *.fmx}
 
+uses OknoWyswietlUzytkownikow;
+
  procedure TForm2.Edit1Change(Sender: TObject);
 begin
   if (Edit1.Text = ' ') or (Edit2.Text = ' ')   then
@@ -77,48 +82,52 @@ end;
 
 procedure TForm2.ZalogujClick(Sender: TObject);
 	var
-    OsobaTestList: TList<Ttest_osoba>;
+    UserList: TList<Tzatrudnienie>;
     hashMessageDigest5 : TIdHashMessageDigest5;
     Result: String;
 	begin
-    OsobaTestList:=DBConnection.Manager.Find<Ttest_osoba>().Where(Linq['Ftest_login'] = Edit1.Text).List;
+    UserList:=DBConnection.Manager.Find<Tzatrudnienie>().Where(Linq['Flogin'] = Edit1.Text).List;
 		try
       //HASZOWANIE PODANEGO PRZEZ UZYTKOWNIKA HASLA
       hashMessageDigest5 := TIdHashMessageDigest5.Create;
       Result := IdGlobal.IndyLowerCase(hashMessageDigest5.HashStringAsHex(Edit2.Text));
-		  if(OsobaTestList.count>0) and (OsobaTestList.Count<2) then
+		  if(UserList.count>0) then
       begin
         //POROWNANIE HASZY MD5
-        if (OsobaTestList.First.test_haslo = Result) then
+        if (UserList.First.haslo = Result) then
         begin
+            if(UserList.First.czyAKTYWNY.Value=1) then
+            begin
             ShowMessage('Logowanie zako鎍zone sukcesem!');
             Form2.Hide;
             Edit1.Text:='';
             Edit2.Text:='';
             //TODO: SPRAWDZ ROLE I URUCHOM ODPOWIEDNI PANEL
-            if(OsobaTestList.First.test_typ = 1) then
+            if(UserList.First.GRUPA_idGRUPA.idGRUPA = 1) then
             //SEKRETARKA
             Form3.ShowModal
-            else if (OsobaTestList.First.test_typ = 2) then
+            else if (UserList.First.GRUPA_idGRUPA.idGRUPA = 2) then
             //LABORANT
             Form4.ShowModal
-            else if (OsobaTestList.First.test_typ = 3) then
+            else if (UserList.First.GRUPA_idGRUPA.idGRUPA = 3) then
             //WYSZUKANIE
             begin
             ShowMessage('TU BEDZIE WYSZUKIWANIE');
             Form2.ShowModal
             end
-            else if (OsobaTestList.First.test_typ = 4) then
+            else if (UserList.First.GRUPA_idGRUPA.idGRUPA = 4) then
             //ADMINISTRATOR
             Form5.ShowModal;
+            end
+            else showMessage('Uzytkownik jest nieaktywny!');
         end
         else
-        showMessage('Nieprawid這we dane logowania!');
+        showMessage('Nieprawid這we has這!');
       end
       else
-      showMessage('Nieprawid這we dane logowania!');
+      showMessage('Brak u篡tkownika w systemie!');
     finally
-      FreeAndNil(OsobaTestList);
+      FreeAndNil(UserList);
       hashMessageDigest5.Free;
     end;
 

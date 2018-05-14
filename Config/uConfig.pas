@@ -45,8 +45,8 @@ uses System.SysUtils;
 constructor TConfig.Create;
 begin
   FDataBaseName:='ProjektWAT';
-  FDataBaseUserName:='pmurawski';
-  FDataBaseUserPassword:='Meriva0303';
+  FDataBaseUserName:='genotyp';
+  FDataBaseUserPassword:='genotyp';
   FDatabaseServerAddress:='192.168.5.50';
   FUserPassword:='';
   FUserName:='';

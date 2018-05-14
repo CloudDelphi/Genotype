@@ -3,7 +3,7 @@ Program:      Genotyp Projekt WAT
 File:         Entities
 Description:  Plik okna startowego - logowania do aplikacji
 Notes:
-              10.05.18 -Katarzyna Nowak
+              10.05.18 -Katarzyna Nowak  - Mapowanie encji
 
 }
 
@@ -100,7 +100,7 @@ type
 
   [Entity]
   [Table('jednostka')]
-  [Id('FidJEDNOSTKA', TIdGenerator.None)]
+  [Id('FidJEDNOSTKA', TIdGenerator.IdentityOrSequence)]
   Tjednostka = class
   private
     [Column('idJEDNOSTKA', [TColumnProp.Required])]
@@ -131,7 +131,7 @@ type
 
   [Entity]
   [Table('osoba')]
-  [Id('FidOSOBA', TIdGenerator.None)]
+  [Id('FidOSOBA', TIdGenerator.IdentityOrSequence)]
   Tosoba = class
   private
     [Column('idOSOBA', [TColumnProp.Required])]

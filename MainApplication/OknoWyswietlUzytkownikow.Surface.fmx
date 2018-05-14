@@ -1,0 +1,26 @@
+﻿inherited Form6_Surface: TForm6_Surface
+  ClientHeight = 1920
+  ClientWidth = 1080
+  DesignerMasterStyle = 0
+  inherited UsersGrid: TStringGrid
+    Viewport.Width = 897.000000000000000000
+    Viewport.Height = 289.000000000000000000
+    inherited Imię: TStringColumn [0]
+    end
+    inherited Nazwisko: TStringColumn [1]
+    end
+    inherited PESEL: TStringColumn [2]
+    end
+    inherited Login: TStringColumn [3]
+    end
+    inherited Grupa: TStringColumn [4]
+    end
+    inherited Jednostka: TStringColumn [5]
+    end
+    inherited Czy_aktywny: TStringColumn [6]
+    end
+    inherited numer: TStringColumn [7]
+      Size.Width = 25.000000000000000000
+    end
+  end
+end

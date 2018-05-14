@@ -1,6 +1,12 @@
 {
-@@TODO:       ZARZ主ZANIE U玆TKOWNIKAMI
-              ZARZ主ZANIE SΜWNIKAMI
+Program:      Genotyp Projekt WAT
+File:         OknoAdministrator
+Description:  Plik okna administratora - zarz鉅zanie u篡tkownikami i s這wnikami
+Notes:        Katarzyna Nowak - formatka
+              Kamil Rutkowski  - ZARZ主ZANIE U玆TKOWNIKAMI
+
+              @@TODO:   DODAJ KONTO
+                        ZARZ主ZANIE SΜWNIKAMI
 }
 unit OknoAdministrator;
 
@@ -9,19 +15,26 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Controls.Presentation, FMX.Layouts, FMX.ExtCtrls;
+  FMX.Controls.Presentation, FMX.Layouts, FMX.ExtCtrls, OknoWyswietlUzytkownikow, OknoDodajKonto, OknoDodajOsobe,
+  OknoDodajJednostke;
 
 type
   TForm5 = class(TForm)
     ImageViewer1: TImageViewer;
-    DodajUzytkownika: TButton;
+    DodajKonto: TButton;
     WyswietlSpisUzytkownikow: TButton;
     ImportujSlowniki: TButton;
     Wyloguj: TButton;
     Label1: TLabel;
     Label2: TLabel;
     Brush1: TBrushObject;
+    DodajOsobeDoBazy: TButton;
+    DodajJednostke: TButton;
     procedure WylogujClick(Sender: TObject);
+    procedure WyswietlSpisUzytkownikowClick(Sender: TObject);
+    procedure DodajKontoClick(Sender: TObject);
+    procedure DodajOsobeDoBazyClick(Sender: TObject);
+    procedure DodajJednostkeClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,11 +48,31 @@ implementation
 
 {$R *.fmx}
   uses OknoLogowania;
+procedure TForm5.DodajJednostkeClick(Sender: TObject);
+begin
+  Form9.ShowModal;
+end;
+
+procedure TForm5.DodajKontoClick(Sender: TObject);
+begin
+  Form7.ShowModal;
+end;
+
+procedure TForm5.DodajOsobeDoBazyClick(Sender: TObject);
+begin
+Form8.ShowModal;
+end;
+
 procedure TForm5.WylogujClick(Sender: TObject);
 begin
 Form5.Hide;
 Form5.Close;
 Form2.ShowModal;
+end;
+
+procedure TForm5.WyswietlSpisUzytkownikowClick(Sender: TObject);
+begin
+  Form6.ShowModal;
 end;
 
 end.

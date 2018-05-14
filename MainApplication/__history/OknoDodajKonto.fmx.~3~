@@ -1,0 +1,25 @@
+object Form7: TForm7
+  Left = 0
+  Top = 0
+  Caption = 'Dodaj konto'
+  ClientHeight = 476
+  ClientWidth = 499
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFFC7BA00
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = xFFDEA95F
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.733153879642486600
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.266846120357513400
+  Fill.Gradient.StopPosition.Y = 0.000000007876092667
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+end

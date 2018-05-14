@@ -1,0 +1,130 @@
+object Form9: TForm9
+  Left = 0
+  Top = 0
+  Caption = 'Dodaj jednostk'#281
+  ClientHeight = 472
+  ClientWidth = 451
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFF555800
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = xFFB76262
+      Offset = 0.990683257579803500
+    end>
+  Fill.Gradient.StartPosition.X = 1.000000000000000000
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.Y = 0.000000017114270889
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Zamknij: TButton
+    Position.X = 280.000000000000000000
+    Position.Y = 424.000000000000000000
+    Size.Width = 120.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Zamknij'
+    OnClick = ZamknijClick
+  end
+  object jednostkaEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 48.000000000000000000
+    Position.Y = 120.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object ulicaEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Position.X = 48.000000000000000000
+    Position.Y = 168.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object budynekEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Position.X = 48.000000000000000000
+    Position.Y = 216.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object kodEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    Position.X = 48.000000000000000000
+    Position.Y = 264.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object miejscowoscEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    Position.X = 48.000000000000000000
+    Position.Y = 312.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object nazwaLabel: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 104.000000000000000000
+    Text = 'Nazwa Jednostki'
+    TabOrder = 6
+  end
+  object ulicaLabel: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 152.000000000000000000
+    Text = 'Ulica'
+    TabOrder = 7
+  end
+  object budynekLabel: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 200.000000000000000000
+    Text = 'Nr Budynku'
+    TabOrder = 8
+  end
+  object kodLabel: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 248.000000000000000000
+    Text = 'Kod Pocztowy'
+    TabOrder = 9
+  end
+  object miejscowoscLabel: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 296.000000000000000000
+    Text = 'Miejscowo'#347#263
+    TabOrder = 10
+  end
+  object Dodaj: TButton
+    Position.X = 48.000000000000000000
+    Position.Y = 424.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 11
+    Text = 'Dodaj'
+    OnClick = DodajClick
+  end
+  object DodawanieJednostki: TLabel
+    Position.X = 56.000000000000000000
+    Position.Y = -40.000000000000000000
+    Scale.X = 3.000000000000000000
+    Scale.Y = 3.000000000000000000
+    Size.Width = 345.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Dodawanie Jednostki'
+    TabOrder = 12
+  end
+end

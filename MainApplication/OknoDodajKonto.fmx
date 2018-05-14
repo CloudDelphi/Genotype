@@ -1,0 +1,53 @@
+object Form7: TForm7
+  Left = 0
+  Top = 0
+  Caption = 'Dodaj konto'
+  ClientHeight = 476
+  ClientWidth = 499
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFFC7BA00
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = xFFDEA95F
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.733153879642486600
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.266846120357513400
+  Fill.Gradient.StopPosition.Y = 0.000000007876092667
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object ComboJednostka: TComboBox
+    Position.X = 152.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 313.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+  end
+  object Aktualizuj: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Aktualizuj'
+    OnClick = AktualizujClick
+  end
+  object Zamknij: TButton
+    Position.X = 368.000000000000000000
+    Position.Y = 424.000000000000000000
+    Size.Width = 104.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Zamknij'
+    OnClick = ZamknijClick
+  end
+end

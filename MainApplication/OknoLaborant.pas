@@ -1,4 +1,9 @@
 {
+Program:      Genotyp Projekt WAT
+File:         OknoLaborant
+Description:  Plik okna laboranta - importowanie danych badania
+Notes:        Katarzyna Nowak - formatka
+
 @@TODO:       IMPORT DANYCH BADANIA
 }
 

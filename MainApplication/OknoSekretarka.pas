@@ -1,4 +1,9 @@
 {
+Program:      Genotyp Projekt WAT
+File:         OknoSekretarka
+Description:  Plik okna sekretarki - wyœwietlanie rejestru i wprowadzanie danych pacjentów
+Notes:        Katarzyna Nowak - formatka
+
 @@TODO:       WYŒWIETLANIE REJESTRU PACJENTÓW W BAZIE
               WPROWADZANIE NOWYCH REKORDÓW
 }

@@ -1,7 +1,7 @@
 object Form2: TForm2
   Left = 450
   Top = 125
-  Caption = 'Logowanie'
+  Caption = 'WatGenotypDesktop'
   ClientHeight = 516
   ClientWidth = 594
   Fill.Kind = Gradient
@@ -18,7 +18,7 @@ object Form2: TForm2
   Fill.Gradient.StartPosition.Y = 1.000000000000000000
   Fill.Gradient.StopPosition.X = 0.366025418043136600
   Fill.Gradient.StopPosition.Y = 0.000000009855696703
-  Position = Designed
+  Position = MainFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -27,6 +27,7 @@ object Form2: TForm2
   Top = 125
   DesignerMasterStyle = 0
   object Zaloguj: TButton
+    Default = True
     Position.X = 256.000000000000000000
     Position.Y = 360.000000000000000000
     Size.Width = 130.000000000000000000

@@ -1,0 +1,87 @@
+﻿object Form6: TForm6
+  Left = 450
+  Top = 125
+  Caption = 'Wy'#347'wietl u'#380'ytkownik'#243'w'
+  ClientHeight = 480
+  ClientWidth = 946
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFFF85959
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = xFFEFA0A0
+      Offset = 0.993788838386535600
+    end>
+  Fill.Gradient.StartPosition.X = 0.788675189018249500
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.211324840784072900
+  Fill.Gradient.StopPosition.Y = 0.000000017948231346
+  Position = MainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 450
+  Top = 125
+  DesignerMasterStyle = 0
+  object Zamknij: TButton
+    Position.X = 792.000000000000000000
+    Position.Y = 424.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Zamknij'
+    OnClick = ZamknijClick
+  end
+  object Aktualizuj: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 424.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Aktualizuj'
+    OnClick = AktualizujClick
+  end
+  object UsersGrid: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 24.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 897.000000000000000000
+    Size.Height = 289.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    RowCount = 0
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+    Viewport.Width = 893.000000000000000000
+    Viewport.Height = 264.000000000000000000
+    object numer: TStringColumn
+      Size.Width = 25.000000000000000000
+    end
+    object Imię: TStringColumn
+      Header = 'Imi'#281
+      ReadOnly = True
+    end
+    object Nazwisko: TStringColumn
+      Header = 'Nazwisko'
+    end
+    object PESEL: TStringColumn
+      Header = 'Pesel'
+    end
+    object Login: TStringColumn
+      Header = 'Login'
+    end
+    object Grupa: TStringColumn
+      Header = 'Grupa'
+    end
+    object Jednostka: TStringColumn
+      Header = 'Jednostka'
+    end
+    object Czy_aktywny: TStringColumn
+      Header = 'Czy aktywny'
+    end
+  end
+end

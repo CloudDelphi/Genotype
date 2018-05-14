@@ -136,6 +136,22 @@
             <Form>Form1</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="OknoWyswietlUzytkownikow.pas">
+            <Form>Form6</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoDodajKonto.pas">
+            <Form>Form7</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoDodajOsobe.pas">
+            <Form>Form8</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoDodajJednostke.pas">
+            <Form>Form9</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <None Include="ModelSupport_ProjektWATGenotyp\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
