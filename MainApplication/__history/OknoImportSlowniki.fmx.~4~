@@ -1,0 +1,75 @@
+object Form12: TForm12
+  Left = 375
+  Top = 175
+  Caption = 'Form12'
+  ClientHeight = 389
+  ClientWidth = 412
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFF75C316
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = claWhite
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.919549822807312000
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.080450169742107390
+  Fill.Gradient.StopPosition.Y = 0.000000004811006704
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 375
+  Top = 175
+  DesignerMasterStyle = 0
+  object sciezkaEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Position.X = 16.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 257.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object SpeedButton1: TSpeedButton
+    Position.X = 272.000000000000000000
+    Position.Y = 144.000000000000000000
+    Text = 'Wybierz..'
+    OnClick = SpeedButton1Click
+  end
+  object zamknijButton: TButton
+    Position.X = 272.000000000000000000
+    Position.Y = 328.000000000000000000
+    Size.Width = 104.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Zamknij'
+    OnClick = zamknijButtonClick
+  end
+  object importujButton: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 184.000000000000000000
+    Size.Width = 257.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Importuj s'#322'ownik'
+    OnClick = importujButtonClick
+  end
+  object Label1: TLabel
+    Position.X = 88.000000000000000000
+    Position.Y = 40.000000000000000000
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    Text = 'Import s'#322'ownik'#243'w'
+    TabOrder = 5
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 40
+    Top = 312
+  end
+end

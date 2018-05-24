@@ -4,7 +4,6 @@ File:         OknoLaborant
 Description:  Plik okna laboranta - importowanie danych badania
 Notes:        Katarzyna Nowak - formatka
 
-@@TODO:       IMPORT DANYCH BADANIA
 }
 
 unit OknoLaborant;
@@ -42,15 +41,18 @@ uses OknoLogowania,OknoImport;
 
 procedure TForm4.ImportujDaneBadaniaClick(Sender: TObject);
 begin
-Form4.Hide;
-Form1.Showmodal;
+  with TForm1.Create(nil) do
+  try
+   ShowModal;
+  finally
+   Free;
+  end;
+
 end;
 
 procedure TForm4.WylogujClick(Sender: TObject);
 begin
-Form4.Hide;
-Form4.Close;
-Form2.ShowModal;
+  Close;
 end;
 
 end.

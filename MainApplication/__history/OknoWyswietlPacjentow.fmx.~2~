@@ -1,0 +1,57 @@
+object Form11: TForm11
+  Left = 475
+  Top = 125
+  Caption = 'Form11'
+  ClientHeight = 480
+  ClientWidth = 640
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 475
+  Top = 125
+  DesignerMasterStyle = 0
+  object Zamknij: TButton
+    Position.X = 512.000000000000000000
+    Position.Y = 424.000000000000000000
+    Size.Width = 88.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Zamknij'
+  end
+  object Odswiez: TButton
+    Position.X = 24.000000000000000000
+    Position.Y = 424.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Od'#347'wie'#380
+  end
+  object StringGrid1: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 32.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 569.000000000000000000
+    Size.Height = 337.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Viewport.Width = 549.000000000000000000
+    Viewport.Height = 312.000000000000000000
+    object Imie: TStringColumn
+      Header = 'Imi'#281
+    end
+    object Nazwisko: TStringColumn
+      Header = 'Nazwisko'
+    end
+    object PESEL: TStringColumn
+      Header = 'PESEL'
+    end
+    object Jednostka: TStringColumn
+      Header = 'Jednostka organizacyjna'
+      Size.Width = 242.000000000000000000
+    end
+  end
+end

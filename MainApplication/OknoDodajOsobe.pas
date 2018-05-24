@@ -51,9 +51,9 @@ newOsoba:TOsoba;
 OsobyInDB:TList<Tosoba>;
 iValue, iCode: Integer;
 begin
-  if(imieEdit.Text.Equals('') or nazwiskoEdit.Text.Equals('') or peselEdit.Text.Equals('')) then
+  if(imieEdit.Text.Equals('') or nazwiskoEdit.Text.Equals('') or peselEdit.Text.Equals('') or (peselEdit.Text.Length<>11)) then
     begin
-      ShowMessage('Nie wszystkie pola zosta³y uzupe³nione!');
+      ShowMessage('Nie wszystkie pola zosta³y poprawnie uzupe³nione!');
     end
     else
     begin
@@ -79,11 +79,7 @@ end;
 
 procedure TForm8.ZamknijClick(Sender: TObject);
 begin
- imieEdit.Text:='';
- nazwiskoEdit.Text:='';
- peselEdit.Text:='';
- Form8.Hide;
- form8.Close;
+ Close;
 end;
 
 end.

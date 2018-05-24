@@ -3,7 +3,7 @@ Program:      Genotyp Projekt WAT
 File:         Entities
 Description:  Plik okna startowego - logowania do aplikacji
 Notes:
-              10.05.18 -Katarzyna Nowak  - Mapowanie encji
+              Katarzyna Nowak  - Mapowanie encji
 
 }
 
@@ -44,10 +44,10 @@ type
 
   [Entity]
   [Table('allele')]
-  [Id('FidALLELE', TIdGenerator.None)]
+  [Id('FidALLELE', TIdGenerator.IdentityOrSequence)]
   Tallele = class
   private
-    [Column('idALLELE', [TColumnProp.Required])]
+    [Column('idALLELE', [TColumnProp.Required, TColumnProp.Unique])]
     FidALLELE: Integer;
 
     [Column('nazwaALLELE', [TColumnProp.Required], 7)]
@@ -63,7 +63,7 @@ type
 
   [Entity]
   [Table('badanie')]
-  [Id('FidBADANIE', TIdGenerator.None)]
+  [Id('FidBADANIE', TIdGenerator.IdentityOrSequence)]
   Tbadanie = class
   private
     [Column('idBADANIE', [TColumnProp.Required])]
@@ -174,7 +174,7 @@ type
 
   [Entity]
   [Table('pacjent')]
-  [Id('FidPACJENT', TIdGenerator.None)]
+  [Id('FidPACJENT', TIdGenerator.IdentityOrSequence)]
   Tpacjent = class
   private
     [Column('idPACJENT', [TColumnProp.Required])]
@@ -186,12 +186,21 @@ type
     [Association([TAssociationProp.Lazy, TAssociationProp.Required], CascadeTypeAll - [TCascadeType.Remove])]
     [JoinColumn('OSOBA_idOSOBA', [TColumnProp.Required], 'idOSOBA')]
     FOSOBA_idOSOBA: Proxy<Tosoba>;
+
+    [Association([TAssociationProp.Lazy, TAssociationProp.Required], CascadeTypeAll - [TCascadeType.Remove])]
+    [JoinColumn('JEDNOSTKA_idJEDNOSTKA', [TColumnProp.Required], 'idJEDNOSTKA')]
+    FJEDNOSTKA_idJEDNOSTKA: Proxy<Tjednostka>;
+
     function GetOSOBA_idOSOBA: Tosoba;
     procedure SetOSOBA_idOSOBA(const Value: Tosoba);
+    function GetJEDNOSTKA_idJEDNOSTKA: Tjednostka;
+    procedure SetJEDNOSTKA_idJEDNOSTKA(const Value: Tjednostka);
+
   public
     property idPACJENT: Integer read FidPACJENT write FidPACJENT;
     property czyAKTYWNY: Nullable<Integer> read FczyAKTYWNY write FczyAKTYWNY;
     property OSOBA_idOSOBA: Tosoba read GetOSOBA_idOSOBA write SetOSOBA_idOSOBA;
+    property JEDNOSTKA_idJEDNOSTKA: Tjednostka read GetJEDNOSTKA_idJEDNOSTKA write SetJEDNOSTKA_idJEDNOSTKA;
   end;
 
   [Entity]
@@ -219,7 +228,7 @@ type
 
   [Entity]
   [Table('wynik')]
-  [Id('FidWYNIK', TIdGenerator.None)]
+  [Id('FidWYNIK', TIdGenerator.IdentityOrSequence)]
   Twynik = class
   private
     [Column('idWYNIK', [TColumnProp.Required])]
@@ -256,7 +265,7 @@ type
 
   [Entity]
   [Table('zatrudnienie')]
-  [Id('FidZATRUDNIENIE', TIdGenerator.None)]
+  [Id('FidZATRUDNIENIE', TIdGenerator.IdentityOrSequence)]
   Tzatrudnienie = class
   private
     [Column('idZATRUDNIENIE', [TColumnProp.Required])]
@@ -412,11 +421,13 @@ type
     FidPACJENT: TDictionaryAttribute;
     FczyAKTYWNY: TDictionaryAttribute;
     FOSOBA_idOSOBA: TDictionaryAssociation;
+    FJEDNOSTKA_idJEDNOSTKA: TDictionaryAssociation;
   public
     constructor Create;
     property idPACJENT: TDictionaryAttribute read FidPACJENT;
     property czyAKTYWNY: TDictionaryAttribute read FczyAKTYWNY;
     property OSOBA_idOSOBA: TDictionaryAssociation read FOSOBA_idOSOBA;
+    property JEDNOSTKA_idJEDNOSTKA: TDictionaryAssociation read FJEDNOSTKA_idJEDNOSTKA;
   end;
 
   Ttest_osobaTableDictionary = class
@@ -506,6 +517,16 @@ end;
 procedure Tpacjent.SetOSOBA_idOSOBA(const Value: Tosoba);
 begin
   FOSOBA_idOSOBA.Value := Value;
+end;
+
+function Tpacjent.GetJEDNOSTKA_idJEDNOSTKA: Tjednostka;
+begin
+  result := FJEDNOSTKA_idJEDNOSTKA.Value;
+end;
+
+procedure Tpacjent.SetJEDNOSTKA_idJEDNOSTKA(const Value: Tjednostka);
+begin
+  FJEDNOSTKA_idJEDNOSTKA.Value := Value;
 end;
 
 { Twynik }
@@ -698,6 +719,7 @@ begin
   FidPACJENT := TDictionaryAttribute.Create('idPACJENT');
   FczyAKTYWNY := TDictionaryAttribute.Create('czyAKTYWNY');
   FOSOBA_idOSOBA := TDictionaryAssociation.Create('OSOBA_idOSOBA');
+  FJEDNOSTKA_idJEDNOSTKA := TDictionaryAssociation.Create('JEDNOSTKA_idJEDNOSTKA');
 end;
 
 { Ttest_osobaTableDictionary }
@@ -753,4 +775,5 @@ finalization
   if __Dic <> nil then __Dic.Free
 
 end.
+
 

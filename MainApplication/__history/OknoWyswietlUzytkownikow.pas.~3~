@@ -1,0 +1,87 @@
+{
+Program:      Genotyp Projekt WAT
+File:         OknoWyswietlUzytkownikow
+Description:  Plik okna z wyswietlaniem uzytkownikow w bazie danych
+Notes:        Kamil Rutkowski - formatka, pobieranie i wyswietlanie uzytkownikow z bazy
+
+}
+
+unit OknoWyswietlUzytkownikow;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, System.Rtti, FMX.Grid.Style,
+  FMX.ScrollBox, FMX.Grid, System.Generics.Collections, Entities, ConnectionModule, uDB;
+
+type
+  TForm6 = class(TForm)
+    Zamknij: TButton;
+    Odswiez: TButton;
+    UsersGrid: TStringGrid;
+    Nazwisko: TStringColumn;
+    PESEL: TStringColumn;
+    Login: TStringColumn;
+    Grupa: TStringColumn;
+    Czy_aktywny: TStringColumn;
+    numer: TStringColumn;
+    procedure ZamknijClick(Sender: TObject);
+    procedure OdswiezClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+  private
+  public
+    { Public declarations }
+  end;
+
+var
+  Form6: TForm6;
+
+implementation
+
+{$R *.fmx}
+
+
+procedure TForm6.OdswiezClick(Sender: TObject);
+var
+  i:Int64;
+  UserList:TList<Tzatrudnienie>;
+begin
+  UserList:=DBConnection.Manager.Find<Tzatrudnienie>().List;
+  try
+    if(UserList.Count>0) then
+    begin
+      UsersGrid.RowCount:=UserList.Count;
+      for i:=0 to UserList.Count-1 do
+        begin
+        UsersGrid.Cells[0,i]:=(i+1).ToString;
+        UsersGrid.Cells[1,i]:=UserList[i].OSOBA_idOSOBA.imieOSOBA;
+        UsersGrid.Cells[2,i]:=UserList[i].OSOBA_idOSOBA.nazwiskoOSOBA;
+        UsersGrid.Cells[3,i]:=UserList[i].OSOBA_idOSOBA.PESEL;
+        UsersGrid.Cells[4,i]:=UserList[i].login;
+        UsersGrid.Cells[5,i]:=UserList[i].GRUPA_idGRUPA.nazwaGRUPA;
+        UsersGrid.Cells[6,i]:=UserList[i].JEDNOSTKA_idJEDNOSTKA.nazwaJEDNOSTKA;
+        if UserList[i].czyAKTYWNY.Value=1 then
+          UsersGrid.Cells[7,i]:='tak'
+          else UsersGrid.Cells[7,i]:='nie';
+        end
+    end;
+  finally
+    if assigned(UserList) then
+    freeAndNil(UserList);
+  end;
+end;
+
+procedure TForm6.FormCreate(Sender: TObject);
+begin
+   OdswiezClick(Sender);
+end;
+
+procedure TForm6.ZamknijClick(Sender: TObject);
+begin
+  Form6.Close;
+end;
+
+end.

@@ -3,7 +3,8 @@ Program:      Genotyp Projekt WAT
 File:         Entities
 Description:  Okno importowania wynoków badañ
 Notes:
-              Katarzyna Nowak - wczytanie z pliku wartoœci Allelów do Tablicy
+              Katarzyna Nowak - wczytanie z pliku wartoœci Allelów do Tablicy string
+              Katarzyna Nowak - wczytanie z pliku wartoœci Allelów do Tablicy double
 
 }
 unit OknoImport;
@@ -14,22 +15,26 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Edit, FMX.ComboEdit, System.Rtti,
-  FMX.Grid.Style, FMX.Memo, FMX.ScrollBox, FMX.Grid;
+  FMX.Grid.Style, FMX.Memo, FMX.ScrollBox, FMX.Grid, StrUtils;
 
 type
   TForm1 = class(TForm)
-    Edit1: TEdit;
+    Sciezka: TEdit;
     Importuj: TButton;
     Memo1: TMemo;
     Koniec: TButton;
     Label1: TLabel;
-    Edit2: TEdit;
+    Kod: TEdit;
     Label2: TLabel;
     Brush1: TBrushObject;
+    OpenDialog1: TOpenDialog;
+    SpeedButton1: TSpeedButton;
 
 
     procedure ImportujClick(Sender: TObject);
     procedure KoniecClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,64 +49,119 @@ uses OknoLaborant;
 
 {$R *.fmx}
 
+procedure TForm1.FormShow(Sender: TObject);
+begin
+        Kod.Text:='';
+        Sciezka.Text:='';
+end;
+
 procedure TForm1.ImportujClick(Sender: TObject);
 
     var
-    Linia, Ilosc_wierszy    : string;
+    Linia, LiniaKropka2, LiniaKropka3    : string;
     plik      : TextFile;
     Liniav    : PWideChar ;
-    i         :integer;
-    TablicaAllel_1   : Array[0..15] of String;
-    TablicaAllel_2   : Array[0..15] of String;
-begin
+    i,Ilosc_wierszy    :Integer;
+    TablicaAllel_double_1   : Array[0..15] of Double;
+    TablicaAllel_double_2   : Array[0..15] of Double;
+  begin
 
-  AssignFile(plik, Edit1.Text) ;
+
+
+  {Kod_PacjentaInt := Kod.Text.ToInteger();}
+    //WCZYTANIE PLIKU
+
+    if FileExists(sciezka.Text) then
+      begin
+  AssignFile(plik, Sciezka.Text) ;
   reset(plik);
   readln(plik);
 
-  for i := 0 to 14 do
+  for i := 0 to 15 do
       begin
+          //ODCZYT LINIJKA PO LINIJCE
+          readln(plik,linia);
 
-    readln(plik,linia);
+          GetMem(Liniav, sizeof(WideChar) * Succ(Length(Linia)));
+          StringToWideChar(Linia, Liniav, Succ(Length(Linia)));
 
-      GetMem(Liniav, sizeof(WideChar) * Succ(Length(Linia)));
-      StringToWideChar(Linia, Liniav, Succ(Length(Linia)));
-      ExtractStrings([#9], [], Liniav, Memo1.Lines) ;
-      Ilosc_wierszy := Memo1.Lines.Count.ToString;  {liczba wszystkich 14/(gdy nie ma 2 wartoœci markera to 13)}
+          //WYSEPAROWANIE STRINGÓW ODDZIELONYCH TABULATOREM
+          ExtractStrings([#9], [], Liniav, Memo1.Lines) ;
+          Ilosc_wierszy := Memo1.Lines.Count;  {liczba wszystkich 14/(gdy nie ma 2. wartoœci markera to 13)}
 
-      if(Ilosc_wierszy='14') then
+          // ZMIANA SEPARATORA Z '.' NA  ','
+          LiniaKropka2 := AnsiReplaceStr(Memo1.Lines[2], '.', ',');
+          LiniaKropka3 := AnsiReplaceStr(Memo1.Lines[3], '.', ',');
+          Memo1.Lines[2]:=LiniaKropka2;
+          Memo1.Lines[3]:=LiniaKropka3;
+
+          //ODCZYT I ZAPIS WARTOSCI ALLELI TO TABLICY
+          // WARTOŒÆ 'X'- ZAPISANA JAKO ZERO
+          if(Ilosc_wierszy=14) then
+          begin
+            if Memo1.Lines[2]='X' then
+              begin
+               TablicaAllel_double_1[i]:= 0;
+               TablicaAllel_double_2[i]:= 0;
+               Memo1.Lines.Clear;
+
+              end
+            else
+              begin
+               TablicaAllel_double_1[i]:= StrToFloat(Memo1.Lines[2]);
+               TablicaAllel_double_2[i]:= StrToFloat(Memo1.Lines[3]);
+               Memo1.Lines.Clear;
+
+              end
+
+        end;
+
+
+          if(Ilosc_wierszy=13) then
         begin
-        TablicaAllel_1[i]:= Memo1.Lines[2];
-        TablicaAllel_2[i]:= Memo1.Lines[3];
-        Memo1.Lines.Clear;
 
+        if Memo1.Lines[2]='X' then
+              begin
+               TablicaAllel_double_1[i]:= 0;
+               TablicaAllel_double_2[i]:= 0;
+               Memo1.Lines.Clear;
+              end
+            else
+              begin
+                TablicaAllel_double_1[i]:= StrToFloat(Memo1.Lines[2]);
+                TablicaAllel_double_2[i]:= StrToFloat(Memo1.Lines[2]);
+                Memo1.Lines.Clear
+              end
 
+        end;
+
+         ShowMessage(TablicaAllel_double_2[i].toString);
       end;
 
-
-      if(Ilosc_wierszy='13') then
-        begin
-        TablicaAllel_1[i]:= Memo1.Lines[2];
-        TablicaAllel_2[i]:= Memo1.Lines[2];
-        Memo1.Lines.Clear;
-
-
-      end;
-
-    end ;
-
-     ShowMessage('Zaimportowano.')
+        ShowMessage('Import zakoñczony sukcesem');
+      end
+      else
+        ShowMessage('Brak pliku do importu');
+        Form1.Hide;
+        Form1.Close;
+        Form4.ShowModal;
    end;
 
 
 
 procedure TForm1.KoniecClick(Sender: TObject);
 begin
-  Form1.Hide;
-  Form1.Close;
-  Form4.ShowModal;
+  Close;
 end;
 
+
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+begin
+if OpenDialog1.Execute then
+  sciezka.Text:=opendialog1.FileName;
+
+
+end;
 
 end.
 

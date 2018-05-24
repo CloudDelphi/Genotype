@@ -1,0 +1,129 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Import Pliku'
+  ClientHeight = 427
+  ClientWidth = 660
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFFF7BF2C
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = claWhite
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.500000000000000000
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.499999970197677600
+  Fill.Gradient.StopPosition.Y = 0.000000000000000000
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object Sciezka: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    TextSettings.Font.Size = 20.000000000000000000
+    Position.X = 32.000000000000000000
+    Position.Y = 224.000000000000000000
+    Size.Width = 465.000000000000000000
+    Size.Height = 45.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Style, FontColor]
+  end
+  object Importuj: TButton
+    Position.X = 376.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 105.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Importuj'
+    OnClick = ImportujClick
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Position.X = 576.000000000000000000
+    Position.Y = 400.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 1.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Viewport.Width = 53.000000000000000000
+    Viewport.Height = 0.000000000000000000
+  end
+  object Koniec: TButton
+    Position.X = 24.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 129.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Koniec'
+    OnClick = KoniecClick
+  end
+  object Label1: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 32.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 281.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 16.000000000000000000
+    Text = 'Wprowad'#378' '#347'cie'#380'k'#281' do pliku:'
+    TabOrder = 4
+  end
+  object Kod: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    TextSettings.Font.Size = 20.000000000000000000
+    Position.X = 32.000000000000000000
+    Position.Y = 112.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 45.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Style, FontColor]
+  end
+  object Label2: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 24.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 16.000000000000000000
+    Text = 'Podaj identyfikator pacjenta:'
+    TabOrder = 6
+  end
+  object Brush1: TBrushObject
+    StyleName = 'Brush1'
+    Brush.Kind = Gradient
+    Brush.Gradient.Points = <
+      item
+        Color = xFFF7BF2C
+        Offset = 0.000000000000000000
+      end
+      item
+        Color = claWhite
+        Offset = 1.000000000000000000
+      end>
+    Brush.Gradient.StartPosition.X = 0.500000000000000000
+    Brush.Gradient.StartPosition.Y = 1.000000000000000000
+    Brush.Gradient.StopPosition.X = 0.499999970197677600
+    Brush.Gradient.StopPosition.Y = 0.000000000000000000
+  end
+  object SpeedButton1: TSpeedButton
+    Position.X = 512.000000000000000000
+    Position.Y = 240.000000000000000000
+    Text = 'SpeedButton1'
+    OnClick = SpeedButton1Click
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 408
+    Top = 304
+  end
+end

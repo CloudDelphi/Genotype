@@ -1,0 +1,173 @@
+object Form10: TForm10
+  Left = 500
+  Top = 175
+  Caption = 'Form10'
+  ClientHeight = 475
+  ClientWidth = 501
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFF25AEDA
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = claWhite
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.500000000000000000
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.499999970197677600
+  Fill.Gradient.StopPosition.Y = 0.000000000000000000
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 500
+  Top = 175
+  DesignerMasterStyle = 0
+  object Zamknij: TButton
+    Position.X = 344.000000000000000000
+    Position.Y = 416.000000000000000000
+    Size.Width = 104.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Zamknij'
+    OnClick = ZamknijClick
+  end
+  object Imie: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    MaxLength = 45
+    FilterChar = 
+      ' qazwsxedcrfvtgbyhnujmiklopQAZWSXEDCRFVTGBYHNUJMIKLOP'#281#8364#243#322#347#261#380#378#263#324#260 +
+      #379#346#377#280#262#323#8364#321#211
+    TextSettings.Font.Size = 18.000000000000000000
+    Position.X = 48.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Imi'#281'...'
+    StyledSettings = [Family, Style, FontColor]
+  end
+  object Nazwisko: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    MaxLength = 45
+    FilterChar = 
+      '-qazwsxedcrfvtgbyhnujmiklopQAZWSXEDCRFVTGBYHNUJMIKLOP'#281#8364#243#322#347#261#380#378#263#324#260 +
+      #379#346#377#280#262#323#8364#321#211
+    TextSettings.Font.Size = 18.000000000000000000
+    Position.X = 48.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Nazwisko..'
+    StyledSettings = [Family, Style, FontColor]
+  end
+  object Pesel: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    MaxLength = 11
+    FilterChar = '1234567890'
+    TextSettings.Font.Size = 18.000000000000000000
+    Position.X = 48.000000000000000000
+    Position.Y = 216.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Pesel..'
+    StyledSettings = [Family, Style, FontColor]
+  end
+  object Label1: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 48.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 18.000000000000000000
+    Text = 'Wprowad'#378' IMI'#280':'
+    TabOrder = 4
+  end
+  object Label2: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 48.000000000000000000
+    Position.Y = 120.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 18.000000000000000000
+    Text = 'Wprowad'#378' NAZWISKO:'
+    TabOrder = 5
+  end
+  object Label3: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 48.000000000000000000
+    Position.Y = 192.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 18.000000000000000000
+    Text = 'Wprowad'#378' PESEL:'
+    TabOrder = 6
+  end
+  object Dodaj: TButton
+    Position.X = 40.000000000000000000
+    Position.Y = 416.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Text = 'Dodaj'
+    OnClick = DodajClick
+  end
+  object Brush1: TBrushObject
+    StyleName = 'Brush1'
+    Brush.Kind = Gradient
+    Brush.Gradient.Points = <
+      item
+        Color = xFF25AEDA
+        Offset = 0.000000000000000000
+      end
+      item
+        Color = claWhite
+        Offset = 1.000000000000000000
+      end>
+    Brush.Gradient.StartPosition.X = 0.500000000000000000
+    Brush.Gradient.StartPosition.Y = 1.000000000000000000
+    Brush.Gradient.StopPosition.X = 0.499999970197677600
+    Brush.Gradient.StopPosition.Y = 0.000000000000000000
+  end
+  object ComboJednostka: TComboBox
+    Position.X = 48.000000000000000000
+    Position.Y = 304.000000000000000000
+    Size.Width = 393.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+  end
+  object Jednostka: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 48.000000000000000000
+    Position.Y = 272.000000000000000000
+    Size.Width = 361.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 18.000000000000000000
+    Text = 'Wybierz jednostk'#281' organizacyjn'#261':'
+    TabOrder = 10
+  end
+  object Aktualizuj: TButton
+    Position.X = 48.000000000000000000
+    Position.Y = 336.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 11
+    Text = 'Aktualizuj'
+    OnClick = AktualizujClick
+  end
+end

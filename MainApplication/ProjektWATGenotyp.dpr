@@ -4,28 +4,34 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   ConnectionModule in '..\DBConnection\ConnectionModule.pas' {FireDacMySQLConnection: TDataModule},
-  OknoLogowania in 'OknoLogowania.pas' {Form2},
-  OknoSekretarka in 'OknoSekretarka.pas' {Form3},
-  OknoLaborant in 'OknoLaborant.pas' {Form4},
   OknoAdministrator in 'OknoAdministrator.pas' {Form5},
-  OknoImport in 'OknoImport.pas' {Form1},
-  OknoWyswietlUzytkownikow in 'OknoWyswietlUzytkownikow.pas' {Form6},
+  OknoDodajJednostke in 'OknoDodajJednostke.pas' {Form9},
   OknoDodajKonto in 'OknoDodajKonto.pas' {Form7},
   OknoDodajOsobe in 'OknoDodajOsobe.pas' {Form8},
-  OknoDodajJednostke in 'OknoDodajJednostke.pas' {Form9};
+  OknoDodajPacjenta in 'OknoDodajPacjenta.pas' {Form10},
+  OknoImport in 'OknoImport.pas' {Form1},
+  OknoLaborant in 'OknoLaborant.pas' {Form4},
+  OknoLogowania in 'OknoLogowania.pas' {Form2},
+  OknoSekretarka in 'OknoSekretarka.pas' {Form3},
+  OknoWyswietlUzytkownikow in 'OknoWyswietlUzytkownikow.pas' {Form6},
+  OknoWyswietlPacjentow in 'OknoWyswietlPacjentow.pas' {Form11},
+  OknoImportSlowniki in 'OknoImportSlowniki.pas' {Form12};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TForm2, Form2);
-  Application.CreateForm(TForm3, Form3);
-  Application.CreateForm(TForm4, Form4);
   Application.CreateForm(TForm5, Form5);
-  Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TForm6, Form6);
+  Application.CreateForm(TForm9, Form9);
   Application.CreateForm(TForm7, Form7);
   Application.CreateForm(TForm8, Form8);
-  Application.CreateForm(TForm9, Form9);
+  Application.CreateForm(TForm10, Form10);
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TForm6, Form6);
+  Application.CreateForm(TForm11, Form11);
+  Application.CreateForm(TForm12, Form12);
   Application.Run;
 end.

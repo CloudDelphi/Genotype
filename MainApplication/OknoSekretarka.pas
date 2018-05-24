@@ -4,8 +4,6 @@ File:         OknoSekretarka
 Description:  Plik okna sekretarki - wyœwietlanie rejestru i wprowadzanie danych pacjentów
 Notes:        Katarzyna Nowak - formatka
 
-@@TODO:       WYŒWIETLANIE REJESTRU PACJENTÓW W BAZIE
-              WPROWADZANIE NOWYCH REKORDÓW
 }
 unit OknoSekretarka;
 
@@ -14,7 +12,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.ExtCtrls, FMX.StdCtrls, FMX.Controls.Presentation;
+  FMX.ExtCtrls, FMX.StdCtrls, FMX.Controls.Presentation, OknoDodajPacjenta, OknoWyswietlPacjentow;
 
 type
   TForm3 = class(TForm)
@@ -28,6 +26,8 @@ type
     Brush2: TBrushObject;
     Brush3: TBrushObject;
     Brush4: TBrushObject;
+    procedure WprowadzDaneClick(Sender: TObject);
+    procedure WyswietlRejestrClick(Sender: TObject);
     procedure WylogujClick(Sender: TObject);
   private
     { Private declarations }
@@ -42,14 +42,29 @@ implementation
 
 {$R *.fmx}
   uses OknoLogowania;
+procedure TForm3.WprowadzDaneClick(Sender: TObject);
+begin
+  with TForm10.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
 procedure TForm3.WylogujClick(Sender: TObject);
 begin
+  Close;
+end;
 
-Form3.Hide;
-Form3.Close;
-Form2.ShowModal;
-
-
+procedure TForm3.WyswietlRejestrClick(Sender: TObject);
+begin
+  with TForm11.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 end.

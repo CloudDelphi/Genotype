@@ -85,14 +85,7 @@ end;
 
 procedure TForm9.ZamknijClick(Sender: TObject);
 begin
-  jednostkaEdit.Text:='';
-  ulicaEdit.Text:='';
-  budynekEdit.Text:='';
-  kodjedenEdit.Text:='';
-  koddwaEdit.Text:='';
-  miejscowoscEdit.Text:='';
-  Form9.Hide;
-  Form9.Close;
+  Close;
 end;
 
 end.

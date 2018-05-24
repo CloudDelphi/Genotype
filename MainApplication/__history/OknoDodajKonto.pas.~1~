@@ -9,7 +9,7 @@ Notes:        Kamil Rutkowski - formatka + wyswietlanie uzytkownikow + dodawanie
 
 }
 
-unit OknoDodajUzytkownika;
+unit OknoDodajKonto;
 
 interface
 
@@ -20,45 +20,28 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls, System.Rtti, FMX.Grid.Style, System.Hash,
   FMX.ScrollBox, FMX.Grid, System.Generics.Collections, Data.DB,
   Aurelius.Bind.BaseDataset, Aurelius.Bind.Dataset, Aurelius.Criteria.Linq, FMX.Ani, FMX.Layouts,
-  FMX.ExtCtrls, FMX.Edit, FMX.ListBox, Windows, Aurelius.Engine.ObjectManager;
+  FMX.ExtCtrls, FMX.Edit, FMX.ListBox, Windows, Aurelius.Engine.ObjectManager, StrUtils;
+
 
 type
   TForm7 = class(TForm)
-    Zamknij: TButton;
-    Dodaj: TButton;
-    hasloEdit: TEdit;
-    peselEdit: TEdit;
-    loginEdit: TEdit;
-    imieEdit: TEdit;
-    nazwiskoEdit: TEdit;
-    ComboOsoba: TComboBox;
     ComboJednostka: TComboBox;
-    Osoba: TLabel;
-    Jednostka: TLabel;
-    ComboGrupa: TComboBox;
-    Grupa: TLabel;
-    Login: TLabel;
-    Has³o: TLabel;
-    ifNowaOsoba: TCheckBox;
-    ifNowaJednostka: TCheckBox;
-    Imiê: TLabel;
-    Nazwisko: TLabel;
-    Pesel: TLabel;
-    nazwaEdit: TEdit;
-    ulicaEdit: TEdit;
-    kodEdit: TEdit;
-    budynekEdit: TEdit;
-    miejscowoscEdit: TEdit;
-    Nazwa: TLabel;
-    Ulica: TLabel;
-    kodPocztowy: TLabel;
-    nrBudynku: TLabel;
-    miejscowosc: TLabel;
     Aktualizuj: TButton;
-    procedure ZamknijClick(Sender: TObject);
-    procedure ifNowaOsobaChange(Sender: TObject);
-    procedure ifNowaJednostkaChange(Sender: TObject);
+    Zamknij: TButton;
+    ComboOsoba: TComboBox;
+    ComboGrupa: TComboBox;
+    JednostkaLabel: TLabel;
+    OsobaLabel: TLabel;
+    GrupaLabel: TLabel;
+    Dodaj: TButton;
+    loginEdit: TEdit;
+    hasloEdit: TEdit;
+    potwierdzHasloEdit: TEdit;
+    loginLabel: TLabel;
+    hasloLabel: TLabel;
+    potwierdzHasloLabel: TLabel;
     procedure AktualizujClick(Sender: TObject);
+    procedure ZamknijClick(Sender: TObject);
     procedure DodajClick(Sender: TObject);
 
   private
@@ -75,179 +58,118 @@ implementation
 {$R *.fmx}
 
 
+
+procedure TForm7.AktualizujClick(Sender: TObject);
+var
+i:Int64;
+UnitList:TList<Tjednostka>;
+GroupList:TList<Tgrupa>;
+PersonList:TList<Tosoba>;
+begin
+  UnitList:=DBConnection.Manager.Find<Tjednostka>().List;
+  GroupList:=DBConnection.Manager.Find<Tgrupa>().List;
+  PersonList:=DBConnection.Manager.Find<Tosoba>().List;
+  try
+  ComboJednostka.Clear;
+  ComboGrupa.Clear;
+  ComboOsoba.Clear;
+  for i:=0 to UnitList.Count-1 do
+    ComboJednostka.Items.Add(UnitList[i].nazwaJEDNOSTKA);
+  for i:=0 to GroupList.Count-1 do
+    ComboGrupa.Items.Add(GroupList[i].nazwaGRUPA);
+  for i:=0 to PersonList.Count-1 do
+    ComboOsoba.Items.Add('PESEL: ' + PersonList[i].PESEL + ' | ' + PersonList[i].imieOSOBA + ' ' + PersonList[i].nazwiskoOSOBA);
+  finally
+    FreeAndNil(UnitList);
+    FreeAndNil(GroupList);
+    FreeAndNil(PersonList);
+  end;
+end;
+
 procedure TForm7.DodajClick(Sender: TObject);
 var
-Manager:TObjectManager;
-pobranaJednostka:Tjednostka;
-pobranaGrupa:Tgrupa;
-pobranaOsoba:Tosoba;
 newZatrudnienie:Tzatrudnienie;
-newJednostka:Tjednostka;
-newOsoba:Tosoba;
+ZatrudnieniaInDB:TList<Tzatrudnienie>;
+PobranaJednostka:TList<Tjednostka>;
+Jednostka:Tjednostka;
+PobranaOsoba:TList<Tosoba>;
+Osoba:Tosoba;
+PESEL:String;
+PobranaGrupa:TList<Tgrupa>;
+Grupa:Tgrupa;
 hashMessageDigest5 : TIdHashMessageDigest5;
 begin
-  //DODAWANIE NOWEJ OSOBY + JEDNOSTKI + TWORZENIE KONTA
-  if(ifNowaOsoba.IsChecked and ifNowaJednostka.IsChecked) then
-  begin
-      //SPRAWDZANIE CZY WSZYSTKIE POLA UZUPELNIONE
-      if (loginEdit.Text.Equals('') or hasloEdit.Text.Equals('') or nazwaEdit.Text.Equals('') or
-      ulicaEdit.Text.Equals('') or budynekEdit.Text.Equals('') or kodEdit.Text.Equals('') or
-      miejscowoscEdit.Text.Equals('') or imieEdit.Text.Equals('') or
-      nazwiskoEdit.Text.Equals('') or peselEdit.Text.Equals('') or (ComboGrupa.ItemIndex=-1)) then
+  if(loginEdit.Text.Equals('') or hasloEdit.Text.Equals('') or potwierdzHasloEdit.Text.Equals('') or
+      (ComboOsoba.ItemIndex=-1) or (ComboGrupa.ItemIndex=-1) or (ComboGrupa.ItemIndex=-1)) then
       begin
-        ShowMessage('Pozosta³y nieuzupe³nione pola!');
+        ShowMessage('Nie uzupe³niono wszystkich pól!');
       end
       else
       begin
-        hashMessageDigest5 := TIdHashMessageDigest5.Create;
-        //NOWA OSOBA
-        newOsoba:=Tosoba.Create;
-        newOsoba.imieOSOBA:=imieEdit.Text;
-        newOsoba.nazwiskoOSOBA:=nazwiskoEdit.Text;
-        newOsoba.PESEL:=peselEdit.Text;
-        //NOWA JEDNOSTKA
-        newJednostka:=Tjednostka.Create;
-        newJednostka.nazwaJEDNOSTKA:=nazwaEdit.Text;
-        newJednostka.ulica:=ulicaEdit.Text;
-        newJednostka.nrBUDYNKU:=budynekEdit.Text;
-        newJednostka.kodPOCZTOWY:=kodEdit.Text;
-        newJednostka.miejscowosc:=miejscowoscEdit.Text;
-        //NOWE ZATRUDNIENIE
-        newZatrudnienie:=Tzatrudnienie.Create;
-        pobranaGrupa:=DBConnection.Manager.Find<Tgrupa>().Where(Linq['FidGRUPA'] = ComboGrupa.ItemIndex).List.First;
-        newZatrudnienie.haslo:=IdGlobal.IndyLowerCase(hashMessageDigest5.HashStringAsHex(hasloEdit.Text));
-        newZatrudnienie.login:=loginEdit.Text;
-        newZatrudnienie.czyAKTYWNY:=1;
-        newZatrudnienie.GRUPA_idGRUPA:=pobranaGrupa;
-        newZatrudnienie.JEDNOSTKA_idJEDNOSTKA:=newJednostka;
-        newZatrudnienie.OSOBA_idOSOBA:=newOsoba;
-
-        Manager:=TObjectManager.Create(DBConnection);
-        try
-
-        finally
-
+       if(containsText(loginEdit.Text, ' ')) then
+       begin
+         ShowMessage('Login posiada spacjê!');
+       end
+       else
+       begin
+          if(hasloEdit.Text <> potwierdzHasloEdit.Text) then
+        begin
+          ShowMessage('Podane has³a nie s¹ identyczne!');
+        end
+        else
+        begin
+          if(ContainsText(hasloEdit.Text, ' ')) then
+            begin
+            ShowMessage('Has³o posiada spacje!');
+            end
+            else
+            begin
+              begin
+                ZatrudnieniaInDB:=DBConnection.Manager.Find<Tzatrudnienie>().Where(Linq['Flogin']=loginEdit.Text).List;
+                try
+                  if(ZatrudnieniaInDB.Count<>0) then
+                  begin
+                    ShowMessage('Taki login jest ju¿ zajêty!');
+                  end
+                  else
+                  begin
+                    PESEL:=copy(ComboOsoba.Items[ComboOsoba.ItemIndex], 8, 11);
+                    PobranaGrupa:=DBConnection.Manager.Find<Tgrupa>().Where(Linq['FidGRUPA'] = (ComboGrupa.ItemIndex+1)).List;
+                    PobranaJednostka:=DBConnection.Manager.Find<Tjednostka>().Where(Linq['FnazwaJEDNOSTKA']=ComboJednostka.Items[ComboJednostka.ItemIndex]).List;
+                    PobranaOsoba:=DBConnection.Manager.Find<Tosoba>().Where(Linq['FPESEL']=PESEL).List;
+                    if((PobranaGrupa.Count=1) and (PobranaJednostka.Count=1) and (PobranaOsoba.Count=1)) then
+                    begin
+                      Grupa:=PobranaGrupa.First;
+                      Jednostka:=PobranaJednostka.First;
+                      Osoba:=PobranaOsoba.First;
+                      hashMessageDigest5 := TIdHashMessageDigest5.Create;
+                      newZatrudnienie:=Tzatrudnienie.Create;
+                      newZatrudnienie.login:=loginEdit.Text;
+                      newZatrudnienie.haslo:=IdGlobal.IndyLowerCase(hashMessageDigest5.HashStringAsHex(hasloEdit.Text));
+                      newZatrudnienie.GRUPA_idGRUPA:=Grupa;
+                      newZatrudnienie.JEDNOSTKA_idJEDNOSTKA:=Jednostka;
+                      newZatrudnienie.OSOBA_idOSOBA:=Osoba;
+                      newZatrudnienie.czyAKTYWNY:=1;
+                      DBConnection.Manager.Save(newZatrudnienie);
+                      DBConnection.Manager.Flush;
+                    end;
+                  end;
+                  finally
+                  FreeAndNil(PobranaGrupa);
+                  FreeAndNil(PobranaJednostka);
+                  FreeAndNil(PobranaOsoba);
+                end;
+              end;
+            end;
         end;
+       end;
       end;
-
-  end
-  //DODAWANIE NOWEJ OSOBY + TWORZENIE KONTA
-  else if(ifNowaOsoba.IsChecked) then
-  begin
-      //SPRAWDZANIE CZY WSZYSTKIE POLA UZUPELNIONE
-      if (loginEdit.Text.Equals('') or hasloEdit.Text.Equals('') or imieEdit.Text.Equals('') or
-      nazwiskoEdit.Text.Equals('') or peselEdit.Text.Equals('') or (ComboGrupa.ItemIndex=-1) or (ComboJednostka.ItemIndex=-1)) then
-      begin
-        ShowMessage('Pozosta³y nieuzupe³nione pola!');
-      end
-      else
-      begin
-        ShowMessage('dodawanie');
-      end;
-
-  end
-  //DODAWANIE NOWEJ JEDNOSTKI + TWORZENIE KONTA
-  else if (ifNowaJednostka.IsChecked) then
-  begin
-      //SPRAWDZANIE CZY WSZYSTKIE POLA UZUPELNIONE
-      if (loginEdit.Text.Equals('') or hasloEdit.Text.Equals('') or nazwaEdit.Text.Equals('') or
-      ulicaEdit.Text.Equals('') or budynekEdit.Text.Equals('') or
-      kodEdit.Text.Equals('') or miejscowoscEdit.Text.Equals('') or (ComboGrupa.ItemIndex=-1) or (ComboOsoba.ItemIndex=-1)) then
-      begin
-        ShowMessage('Pozosta³y nieuzupe³nione pola!');
-      end
-      else
-      begin
-        ShowMessage('dodawanie');
-      end;
-  end
-  //TWORZENIE KONTA
-  else
-  begin
-      //SPRAWDZANIE CZY WSZYSTKIE POLA UZUPELNIONE
-      if (loginEdit.Text.Equals('') or hasloEdit.Text.Equals('') or (ComboGrupa.ItemIndex=-1) or
-      (ComboOsoba.ItemIndex=-1) or (ComboJednostka.ItemIndex=-1)) then
-      begin
-         ShowMessage('Pozosta³y nieuzupe³nione pola!');
-      end
-  else
-      begin
-         ShowMessage('dodawanie');
-      end;
-end;
-end;
-
-procedure TForm7.ifNowaJednostkaChange(Sender: TObject);
-begin
-   if(ifNowaJednostka.IsChecked) then
-   begin
-    nazwaEdit.Enabled:=true;
-    ulicaEdit.Enabled:=true;
-    kodEdit.Enabled:=true;
-    budynekEdit.Enabled:=true;
-    miejscowoscEdit.Enabled:=true;
-    comboJednostka.Enabled:=false;
-   end
-   else
-   begin
-    nazwaEdit.Enabled:=false;
-    ulicaEdit.Enabled:=false;
-    kodEdit.Enabled:=false;
-    budynekEdit.Enabled:=false;
-    miejscowoscEdit.Enabled:=false;
-    comboJednostka.Enabled:=true;
-   end
-end;
-
-procedure TForm7.ifNowaOsobaChange(Sender: TObject);
-begin
-  if(ifNowaOsoba.IsChecked) then
-  begin
-  imieEdit.Enabled:=true;
-  nazwiskoEdit.Enabled:=true;
-  peselEdit.Enabled:=true;
-  comboOsoba.Enabled:=false;
-  end
-  else
-  begin
-  imieEdit.Enabled:=false;
-  nazwiskoEdit.Enabled:=false;
-  peselEdit.Enabled:=false;
-  comboOsoba.Enabled:=true;
-  end
 end;
 
 procedure TForm7.ZamknijClick(Sender: TObject);
 begin
+  Form7.Hide;
   Form7.Close;
-end;
-
-procedure TForm7.AktualizujClick(Sender: TObject);
-  var
-  GroupList:TList<Tgrupa>;
-  UnitList:TList<Tjednostka>;
-  PersonList:TList<Tosoba>;
-  i:Int64;
-begin
-  GroupList:=DBConnection.Manager.Find<Tgrupa>().List;
-  UnitList:=DBConnection.Manager.Find<Tjednostka>().List;
-  PersonList:=DBConnection.Manager.Find<Tosoba>().List;
-  try
-    ComboGrupa.Clear;
-    ComboJednostka.Clear;
-    ComboOsoba.Clear;
-  for i:=0 to GroupList.Count-1 do
-    ComboGrupa.Items.Add(GroupList[i].nazwaGRUPA);
-  for i:=0 to UnitList.Count-1 do
-    ComboJednostka.Items.Add(UnitList[i].nazwaJEDNOSTKA);
-  for i:=0 to PersonList.Count-1 do
-    ComboOsoba.Items.Add(PersonList[i].imieOSOBA + ' ' + PersonList[i].nazwiskoOSOBA + ' ('+PersonList[i].PESEL +')');
-  finally
-    GroupList.Free;
-    UnitList.Free;
-    PersonList.Free;
-  end;
-
 end;
 
 end.

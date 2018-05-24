@@ -116,28 +116,12 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="OknoLogowania.pas">
-            <Form>Form2</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="OknoSekretarka.pas">
-            <Form>Form3</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="OknoLaborant.pas">
-            <Form>Form4</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="OknoAdministrator.pas">
             <Form>Form5</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="OknoImport.pas">
-            <Form>Form1</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="OknoWyswietlUzytkownikow.pas">
-            <Form>Form6</Form>
+        <DCCReference Include="OknoDodajJednostke.pas">
+            <Form>Form9</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="OknoDodajKonto.pas">
@@ -148,8 +132,36 @@
             <Form>Form8</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="OknoDodajJednostke.pas">
-            <Form>Form9</Form>
+        <DCCReference Include="OknoDodajPacjenta.pas">
+            <Form>Form10</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoImport.pas">
+            <Form>Form1</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoLaborant.pas">
+            <Form>Form4</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoLogowania.pas">
+            <Form>Form2</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoSekretarka.pas">
+            <Form>Form3</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoWyswietlUzytkownikow.pas">
+            <Form>Form6</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoWyswietlPacjentow.pas">
+            <Form>Form11</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="OknoImportSlowniki.pas">
+            <Form>Form12</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <None Include="ModelSupport_ProjektWATGenotyp\default.txaPackage"/>

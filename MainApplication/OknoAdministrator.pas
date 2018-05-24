@@ -3,9 +3,8 @@ Program:      Genotyp Projekt WAT
 File:         OknoAdministrator
 Description:  Plik okna administratora - zarz鉅zanie u篡tkownikami i s這wnikami
 Notes:        Katarzyna Nowak - formatka
-              Kamil Rutkowski  - ZARZ主ZANIE U玆TKOWNIKAMI
+              Kamil Rutkowski  - ZARZ主ZANIE U玆TKOWNIKAMI(KONTA, JEDNOSTKI, OSOBY)
 
-              @@TODO:   DODAJ KONTO
                         ZARZ主ZANIE SΜWNIKAMI
 }
 unit OknoAdministrator;
@@ -16,7 +15,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, FMX.ExtCtrls, OknoWyswietlUzytkownikow, OknoDodajKonto, OknoDodajOsobe,
-  OknoDodajJednostke;
+  OknoDodajJednostke, OknoImportSlowniki;
 
 type
   TForm5 = class(TForm)
@@ -35,6 +34,7 @@ type
     procedure DodajKontoClick(Sender: TObject);
     procedure DodajOsobeDoBazyClick(Sender: TObject);
     procedure DodajJednostkeClick(Sender: TObject);
+    procedure ImportujSlownikiClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,29 +50,57 @@ implementation
   uses OknoLogowania;
 procedure TForm5.DodajJednostkeClick(Sender: TObject);
 begin
-  Form9.ShowModal;
+  with TForm9.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 procedure TForm5.DodajKontoClick(Sender: TObject);
 begin
-  Form7.ShowModal;
+    with TForm7.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 procedure TForm5.DodajOsobeDoBazyClick(Sender: TObject);
 begin
-Form8.ShowModal;
+  with TForm8.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+procedure TForm5.ImportujSlownikiClick(Sender: TObject);
+begin
+  with TForm12.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 procedure TForm5.WylogujClick(Sender: TObject);
 begin
-Form5.Hide;
-Form5.Close;
-Form2.ShowModal;
+  Close;
 end;
 
 procedure TForm5.WyswietlSpisUzytkownikowClick(Sender: TObject);
 begin
-  Form6.ShowModal;
+  with TForm6.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 end.

@@ -1,4 +1,13 @@
-unit Unit4;
+{
+Program:      Genotyp Projekt WAT
+File:         OknoLaborant
+Description:  Plik okna laboranta - importowanie danych badania
+Notes:        Katarzyna Nowak - formatka
+
+@@TODO:       IMPORT DANYCH BADANIA
+}
+
+unit OknoLaborant;
 
 interface
 
@@ -16,6 +25,7 @@ type
     Label2: TLabel;
     Brush1: TBrushObject;
     procedure WylogujClick(Sender: TObject);
+    procedure ImportujDaneBadaniaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,11 +38,18 @@ var
 implementation
 
 {$R *.fmx}
-uses OknoLogowania;
+uses OknoLogowania,OknoImport;
+
+procedure TForm4.ImportujDaneBadaniaClick(Sender: TObject);
+begin
+Form4.Hide;
+Form1.Showmodal;
+end;
 
 procedure TForm4.WylogujClick(Sender: TObject);
 begin
 Form4.Hide;
+Form4.Close;
 Form2.ShowModal;
 end;
 

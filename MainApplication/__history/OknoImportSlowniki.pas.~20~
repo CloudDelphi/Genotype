@@ -1,0 +1,87 @@
+unit OknoImportSlowniki;
+
+interface
+
+uses
+    ConnectionModule,uDB, Entities, IdGlobal, IdHash, IdHashMessageDigest,
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, System.Rtti, FMX.Grid.Style, System.Hash,
+  FMX.ScrollBox, FMX.Grid, System.Generics.Collections, Data.DB,
+  Aurelius.Bind.BaseDataset, Aurelius.Bind.Dataset, Aurelius.Criteria.Linq, FMX.Ani, FMX.Layouts,
+  FMX.ExtCtrls, FMX.Edit, FMX.ListBox, Windows, Aurelius.Engine.ObjectManager;
+
+type
+  TForm12 = class(TForm)
+    sciezkaEdit: TEdit;
+    SpeedButton1: TSpeedButton;
+    OpenDialog1: TOpenDialog;
+    zamknijButton: TButton;
+    importujButton: TButton;
+    Label1: TLabel;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure zamknijButtonClick(Sender: TObject);
+    procedure importujButtonClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form12: TForm12;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm12.zamknijButtonClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TForm12.importujButtonClick(Sender: TObject);
+var
+i: Int64;
+plik: TextFile;
+linia: String;
+allel: Tallele;
+alleleInDB: TList<Tallele>;
+begin
+  
+  if FileExists(sciezkaEdit.Text) then
+  begin
+    AssignFile(plik, sciezkaEdit.Text);
+    reset(plik);
+    alleleInDB:=DBConnection.Manager.Find<Tallele>().List;
+    try
+      while not Eof(plik) do
+      begin
+        ReadLn(plik,linia);
+        allel:=Tallele.Create;
+        allel.nazwaALLELE:=linia;
+        allel.czyAKTYWNY:=1;
+        if not (alleleInDB.Contains(allel)) then
+        begin
+          DBConnection.Manager.Save(allel);
+          DBConnection.Manager.Flush;
+        end
+        else
+        begin
+          showmessage('exists');
+        end;
+      end;
+    finally
+      FreeAndNil(alleleInDB);
+    end;
+  end;
+
+end;
+
+procedure TForm12.SpeedButton1Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+    sciezkaEdit.Text:=opendialog1.FileName;
+end;
+
+end.

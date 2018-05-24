@@ -47,8 +47,8 @@ object Form8: TForm8
     TabOrder = 2
     MaxLength = 45
     FilterChar = 
-      #39' qazwsxedcrfvtgbyhnujmiklopQAZWSXEDCRFVTGBYHNUJMIKLOP'#281#8364#243#322#347#261#380#378#263#324 +
-      #260#379#346#377#280#262#323#8364#321#211
+      ' qazwsxedcrfvtgbyhnujmiklopQAZWSXEDCRFVTGBYHNUJMIKLOP'#281#8364#243#322#347#261#380#378#263#324#260 +
+      #379#346#377#280#262#323#8364#321#211
     Position.X = 48.000000000000000000
     Position.Y = 96.000000000000000000
     Size.Width = 273.000000000000000000
@@ -60,8 +60,8 @@ object Form8: TForm8
     TabOrder = 3
     MaxLength = 45
     FilterChar = 
-      #39'-qazwsxedcrfvtgbyhnujmiklopQAZWSXEDCRFVTGBYHNUJMIKLOP'#281#8364#243#322#347#261#380#378#263#324 +
-      #260#379#346#377#280#262#323#8364#321#211#39
+      '-qazwsxedcrfvtgbyhnujmiklopQAZWSXEDCRFVTGBYHNUJMIKLOP'#281#8364#243#322#347#261#380#378#263#324#260 +
+      #379#346#377#280#262#323#8364#321#211
     Position.X = 48.000000000000000000
     Position.Y = 144.000000000000000000
     Size.Width = 273.000000000000000000
@@ -72,7 +72,7 @@ object Form8: TForm8
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 4
     MaxLength = 11
-    FilterChar = #39'1234567890'#39
+    FilterChar = '1234567890'
     Position.X = 48.000000000000000000
     Position.Y = 192.000000000000000000
     Size.Width = 273.000000000000000000

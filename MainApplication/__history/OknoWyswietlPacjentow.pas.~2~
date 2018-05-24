@@ -1,0 +1,31 @@
+{
+Program:      Genotyp Projekt WAT
+File:         OknoWyswietlPacjentow
+Description:  Plik okna z wyswietlaniem pacjentów w bazie danych
+Notes:        Kamil Rutkowski - formatka, pobieranie i wyswietlanie pacjentów
+
+}
+unit OknoWyswietlPacjentow;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs;
+
+type
+  TForm11 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form11: TForm11;
+
+implementation
+
+{$R *.fmx}
+
+end.

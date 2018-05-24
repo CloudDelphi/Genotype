@@ -98,26 +98,49 @@ procedure TForm2.ZalogujClick(Sender: TObject);
         begin
             if(UserList.First.czyAKTYWNY.Value=1) then
             begin
-            ShowMessage('Logowanie zakoñczone sukcesem!');
             Form2.Hide;
             Edit1.Text:='';
             Edit2.Text:='';
             //TODO: SPRAWDZ ROLE I URUCHOM ODPOWIEDNI PANEL
             if(UserList.First.GRUPA_idGRUPA.idGRUPA = 1) then
             //SEKRETARKA
-            Form3.ShowModal
+            begin
+              with TForm3.Create(nil) do
+                 try
+                  ShowModal;
+                 finally
+                 Free;
+                 Form2.ShowModal;
+              end;
+            end
             else if (UserList.First.GRUPA_idGRUPA.idGRUPA = 2) then
             //LABORANT
-            Form4.ShowModal
+            begin
+              with TForm4.Create(nil) do
+                 try
+                  ShowModal;
+                 finally
+                 Free;
+                 Form2.ShowModal;
+              end;
+            end
             else if (UserList.First.GRUPA_idGRUPA.idGRUPA = 3) then
             //WYSZUKANIE
             begin
             ShowMessage('TU BEDZIE WYSZUKIWANIE');
-            Form2.ShowModal
+            ShowModal;
             end
             else if (UserList.First.GRUPA_idGRUPA.idGRUPA = 4) then
             //ADMINISTRATOR
-            Form5.ShowModal;
+            begin
+              with TForm5.Create(nil) do
+                 try
+                  ShowModal;
+                 finally
+                 Free;
+                 Form2.ShowModal;
+              end;
+            end
             end
             else showMessage('Uzytkownik jest nieaktywny!');
         end

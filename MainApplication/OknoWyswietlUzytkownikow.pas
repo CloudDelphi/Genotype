@@ -19,7 +19,7 @@ uses
 type
   TForm6 = class(TForm)
     Zamknij: TButton;
-    Aktualizuj: TButton;
+    Odswiez: TButton;
     UsersGrid: TStringGrid;
     Nazwisko: TStringColumn;
     PESEL: TStringColumn;
@@ -28,7 +28,8 @@ type
     Czy_aktywny: TStringColumn;
     numer: TStringColumn;
     procedure ZamknijClick(Sender: TObject);
-    procedure AktualizujClick(Sender: TObject);
+    procedure OdswiezClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
   public
@@ -43,7 +44,7 @@ implementation
 {$R *.fmx}
 
 
-procedure TForm6.AktualizujClick(Sender: TObject);
+procedure TForm6.OdswiezClick(Sender: TObject);
 var
   i:Int64;
   UserList:TList<Tzatrudnienie>;
@@ -68,13 +69,19 @@ begin
         end
     end;
   finally
+    if assigned(UserList) then
     freeAndNil(UserList);
   end;
 end;
 
+procedure TForm6.FormCreate(Sender: TObject);
+begin
+   OdswiezClick(Sender);
+end;
+
 procedure TForm6.ZamknijClick(Sender: TObject);
 begin
-  Form6.Close;
+  Close;
 end;
 
 end.
